@@ -5,7 +5,15 @@ const router = express.Router();
 
 router
   .route('/top-5-budget')
-  .get(tourController.topToursBudget, tourController.getAllTours)
+  .get(tourController.topToursBudget, tourController.getAllTours);
+
+router
+  .route('/tour-stats')
+  .get(tourController.getTourStats);
+
+router
+  .route('/monthly-plan/:year')
+  .get(tourController.getMonthlyPlan);
 
 router
   .route('/')
