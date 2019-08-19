@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 
+const AppError = require('./utilities/appError');
+const errorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 
@@ -15,11 +17,6 @@ app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 
 app.use((req, res, next) => {
-  console.log('Hello from the middleware 👋');
-  next();
-});
-
-app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
 });
@@ -27,5 +24,11 @@ app.use((req, res, next) => {
 // 3) ROUTES
 app.use('/api/tours', tourRouter);
 app.use('/api/users', userRouter);
+
+app.all('*', (req, res, next) => {
+  next(new AppError (`Can't find ${req.originalUrl} on this server`, 400));
+});
+
+app.use(errorHandler);
 
 module.exports = app;
