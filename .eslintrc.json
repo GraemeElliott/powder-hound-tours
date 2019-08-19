@@ -2,6 +2,8 @@
   "extends": ["airbnb", "plugin:node/recommended"],
   "rules": {
     "spaced-comment": "off",
+    "linebreak-style": 0,
+    "global-require": 0,
     "no-console": "warn",
     "consistent-return": "off",
     "func-names": "off",
