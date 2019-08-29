@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
+const User = require('./userModel');
 
 const tourSchema = new mongoose.Schema({
   name: {
@@ -74,6 +75,35 @@ const tourSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  startLocation: {
+    type: {
+      type: String,
+      default: 'Point',
+      enum: ['Point'],
+    },
+    coordinates: [Number],
+    address: String,
+    description: String,
+  },
+  locations: [
+    {
+      type: {
+        type: String,
+        default: 'Point',
+        enum: ['Point'],
+      },
+      coordinates: [Number],
+      address: String,
+      description: String,
+      day: Number,
+    },
+  ],
+  tourGuides: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+    }
+  ]
 }, {
   toJSON: { virtuals: true },
   toObject: { virtuals: true },
@@ -89,14 +119,28 @@ tourSchema.pre('save', function (next) {
   next();
 });
 
+// tourSchema.pre('save', async function(next) {
+//   const tourGuidesPromises = this.tourGuides.map(async id => await User.findById(id));
+//   this.tourGuides = await Promise.all(tourGuidesPromises)
+//   next();
+// });
+
 //QUERY MIDDLEWARE
 tourSchema.pre(/^find/, function (next) {
   this.find({ secretTour: { $ne: true } });
   next();
 });
 
+tourSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'tourGuides',
+    select: '-__v -passwordChangedTimestamp',
+  });
+  next();
+});
+
 //AGGREGATION MIDDLEWARE
-tourSchema.pre('aggregate', function(next) {
+tourSchema.pre('aggregate', function (next) {
   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
   console.log (this.pipeline());
   next();
