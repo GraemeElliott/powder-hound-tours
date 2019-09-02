@@ -6,12 +6,20 @@ const router = express.Router();
 
 router.post('/signup', authenticationController.signup);
 router.post('/login', authenticationController.login);
-
 router.post('/forgot-password', authenticationController.forgotPassword);
 router.patch('/reset-password/:token', authenticationController.resetPassword);
-router.patch('/update-password', authenticationController.protect, authenticationController.updatePassword);
-router.patch('/update-profile', authenticationController.protect, userController.updateUserProfile);
-router.delete('/delete-profile', authenticationController.protect, userController.deleteUserProfile);
+
+router.use(authenticationController.protect);
+
+router.patch('/update-password', authenticationController.updatePassword);
+router.get(
+  '/profile',
+  userController.getUserData,
+  userController.getUser);
+router.patch('/update-profile', userController.updateUserProfile);
+router.delete('/delete-profile', userController.deleteUserProfile);
+
+router.use(authenticationController.restrictTo('admin'));
 
 router
   .route('/')

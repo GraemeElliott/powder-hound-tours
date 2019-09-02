@@ -98,7 +98,7 @@ const tourSchema = new mongoose.Schema({
       day: Number,
     },
   ],
-  tourGuides: [
+  guides: [
     {
       type: mongoose.Schema.ObjectId,
       ref: 'User',
@@ -139,7 +139,7 @@ tourSchema.pre(/^find/, function (next) {
 
 tourSchema.pre(/^find/, function (next) {
   this.populate({
-    path: 'tourGuides',
+    path: 'guides',
     select: '-__v -passwordChangedTimestamp',
   });
   next();

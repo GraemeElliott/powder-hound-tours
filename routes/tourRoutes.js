@@ -21,13 +21,13 @@ router
 
 router
   .route('/')
-  .get(authenticationController.protect, tourController.getAllTours)
-  .post(tourController.createTour);
+  .get(tourController.getAllTours)
+  .post(authenticationController.protect, authenticationController.restrictTo('admin', 'lead-guide'), tourController.createTour);
 
 router
   .route('/:id')
   .get(tourController.getTour)
-  .patch(tourController.updateTour)
+  .patch(authenticationController.protect, authenticationController.restrictTo('admin', 'lead-guide', tourController.updateTour))
   .delete(authenticationController.protect, authenticationController.restrictTo('admin', 'lead-guide'), tourController.deleteTour);
 
 module.exports = router;
