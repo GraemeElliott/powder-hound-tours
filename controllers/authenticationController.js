@@ -84,7 +84,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   // 2) Verify token
 
-  const decodedPayload = await promisify (jwt.verify)(token, process.env.JWT_SECRET);
+  const decodedPayload = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
   
   // 3) Check if user still exists
   const currentUser = await User.findById(decodedPayload.id);
@@ -179,7 +179,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   createSendToken(user, 200, res);
 });
 
-exports.updatePassword = catchAsync ( async(req, res, next) => {
+exports.updatePassword = catchAsync(async (req, res, next) => {
   // 1) Get user from collection
   const user = await User.findById(req.user.id).select('+password');
 

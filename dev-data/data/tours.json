@@ -1,14 +1,5 @@
 [
   {
-    "startLocation": {
-      "description": "Japan",
-      "type": "Point",
-      "coordinates": [
-        36.953473,
-        138.801973
-      ],
-      "address": "1039-2 Yuzawa, Minamiuonuma District, Niigata 949-6101, Japan"
-    },
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
     "images": [
@@ -78,15 +69,6 @@
     ]
   },
   {
-    "startLocation": {
-      "description": "Whistler, CA",
-      "type": "Point",
-      "coordinates": [
-        50.123008,
-        -122.955803
-      ],
-      "address": "4545 Blackomb Way, Whistler, BC, Canada"
-    },
     "ratingsAverage": 5,
     "ratingsQuantity": 9,
     "images": [
@@ -147,15 +129,6 @@
     ]
   },
   {
-    "startLocation": {
-      "description": "Alaska, USA",
-      "type": "Point",
-      "coordinates": [
-        64.942855,
-        -147.992152
-      ],
-      "address": "3450 Moose Mountain Rd, Fairbanks North Star Borough, Alaska"
-    },
     "ratingsAverage": 4.5,
     "ratingsQuantity": 6,
     "images": [
@@ -206,15 +179,6 @@
     ]
   },
   {
-    "startLocation": {
-      "description": "Italy and Austria",
-      "type": "Point",
-      "coordinates": [
-        46.527417,
-        10.125046
-      ],
-      "address": "Livigno, Italy"
-    },
     "ratingsAverage": 4.7,
     "ratingsQuantity": 12,
     "images": [
@@ -285,15 +249,6 @@
     ]
   },
   {
-    "startLocation": {
-      "description": "Mount Cook, New Zealand",
-      "type": "Point",
-      "coordinates": [
-        -43.733393,
-        170.100626
-      ],
-      "address": "Mount Cook, New Zealand"
-    },
     "ratingsAverage": 4.6,
     "ratingsQuantity": 5,
     "images": [
@@ -353,15 +308,6 @@
     ]
   },
   {
-    "startLocation": {
-      "description": "Valle Nevado, Chile",
-      "type": "Point",
-      "coordinates": [
-        -33.353589,
-        -70.248965
-      ],
-      "address": "Valle Nevado, Chile"
-    },
     "ratingsAverage": 3.9,
     "ratingsQuantity": 7,
     "images": [
@@ -412,15 +358,6 @@
     ]
   },
   {
-    "startLocation": {
-      "description": "Finland",
-      "type": "Point",
-      "coordinates": [
-        64.97769,
-        27.101614
-      ],
-      "address": "Finland"
-    },
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
     "images": [
@@ -480,15 +417,6 @@
     ]
   },
   {
-    "startLocation": {
-      "description": "Banff, Canada",
-      "type": "Point",
-      "coordinates": [
-        51.178357,
-        -115.571183
-      ],
-      "address": "Banff, Canada"
-    },
     "ratingsAverage": 4.7,
     "ratingsQuantity": 7,
     "images": [
@@ -529,15 +457,6 @@
     ]
   },
   {
-    "startLocation": {
-      "description": "Niseko, Hokkaido, Japan",
-      "type": "Point",
-      "coordinates": [
-        42.852308,
-        140.648523
-      ],
-      "address": "Niseko, Hokkaido, Japan"
-    },
     "ratingsAverage": 4.4,
     "ratingsQuantity": 7,
     "images": [
