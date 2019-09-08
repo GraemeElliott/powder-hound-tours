@@ -4,9 +4,11 @@ header.header
   .header__logo
     img(src='/img/logo-white.png' alt='Powder Hound Tours')
   nav.nav.nav--user
-    //- a.nav__el(href='#') My Bookings
-    //- a.nav__el(href='#')
-    //-   img.nav__user-image(src='img/user.jpg' alt='User photo')
-    //-   span User's Name
-    button.nav__el Login
-    button.nav__el.nav__el--cta Sign Up
+    if user
+     a.nav__el.nav--logout Log Out
+     a.nav__el(href='#')
+       img.nav__user-img(src=`/img/users/${user.photo}` alt=`Photo of ${user.name}`)
+       span= user.name.split(' ')[0]
+    else
+      a.button.nav__el(href='/login') Login
+      a.button.nav__el.nav__el--cta(href='/register') Register

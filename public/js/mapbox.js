@@ -1,8 +1,7 @@
 /* eslint-disable */
-const locations = JSON.parse(document.getElementById('map').dataset.locations);
-console.log (locations)
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZWRvdXQiLCJhIjoiY2swOXF0bHBwMGFzYTNicXZpN3FzaHhnZCJ9.3TMcO4udBHOGeK4qbV5xtg'; // Default Public Key
+export const displayMap = (locations) => {
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZWRvdXQiLCJhIjoiY2swOXF0bHBwMGFzYTNicXZpN3FzaHhnZCJ9.3TMcO4udBHOGeK4qbV5xtg'; // Default Public Key
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/dimedout/ck09r5l5o24wp1cnvxm5l2gbl',
@@ -40,3 +39,6 @@ locations.forEach(loc => {
     },
   });
 });
+
+}
+
