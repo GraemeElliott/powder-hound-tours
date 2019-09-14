@@ -44,6 +44,7 @@ app.use('/api', limiter);
 
 // Body Parser
 app.use(express.json({ limit: '10kb' }));
+app.use(express.urlencoded({ extended: true, limit: '10kb' }))
 app.use(cookieParser());
 
 // Data Sanitization against NoSQL Query injections
@@ -75,7 +76,7 @@ app.use('/api/reviews', reviewRouter);
 
 
 app.all('*', (req, res, next) => {
-  next(new AppError (`Can't find ${req.originalUrl} on this server`, 400));
+  next(new AppError(`Can't find ${req.originalUrl} on this server`, 400));
 });
 
 app.use(errorHandler);
